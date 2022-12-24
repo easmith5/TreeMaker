@@ -113,7 +113,7 @@ SVJsamples = [
     # MCSample("step_MINIAOD_t-channel_mMed-2000_mDark-20_rinv-0.1_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 254570),
     # MCSample("step_MINIAOD_t-channel_mMed-2000_mDark-20_rinv-0.5_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 206893),
     # MCSample("step_MINIAOD_t-channel_mMed-2000_mDark-20_rinv-0.7_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 206356),
-    # 2017 values                                                                                                                                                                                                                            
+    # 2017 values
     MCSample("step_MINIAOD_t-channel_mMed-600_mDark-20_rinv-0.3_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 197871),
     MCSample("step_MINIAOD_t-channel_mMed-800_mDark-20_rinv-0.3_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 199670),
     MCSample("step_MINIAOD_t-channel_mMed-1000_mDark-20_rinv-0.3_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 201907),
