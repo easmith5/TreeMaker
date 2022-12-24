@@ -42,7 +42,7 @@ SVJsamples = [
     MCSample("step4_MINIAOD_mZprime-1900_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49220),
     MCSample("step4_MINIAOD_mZprime-2100_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 48873),
     MCSample("step4_MINIAOD_mZprime-2200_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49108),
-    MCSample("step4_MINIAOD_mZprime-2300_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49272),
+q    MCSample("step4_MINIAOD_mZprime-2300_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49272),
     MCSample("step4_MINIAOD_mZprime-2400_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49050),
     MCSample("step4_MINIAOD_mZprime-2600_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49273),
     MCSample("step4_MINIAOD_mZprime-2700_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49296),
@@ -127,4 +127,5 @@ SVJsamples = [
     MCSample("step_MINIAOD_t-channel_mMed-2000_mDark-20_rinv-0.1_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 253219),
     MCSample("step_MINIAOD_t-channel_mMed-2000_mDark-20_rinv-0.5_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 206742),
     MCSample("step_MINIAOD_t-channel_mMed-2000_mDark-20_rinv-0.7_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000", "", "", "Constant", 206544),
+
 ]
