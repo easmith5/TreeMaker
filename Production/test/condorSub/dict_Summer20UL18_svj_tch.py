@@ -1,5 +1,6 @@
 flist = {
     "scenario": "Summer20UL18sig",
+    "args": "boostedsemivisible=1 tchannel=1 jetsconstituents=2",
     "samples": [
         ['PrivateSamples.SVJ_UL2018_t-channel_mMed-600_mDark-20_rinv-0p3_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000'],
         ['PrivateSamples.SVJ_UL2018_t-channel_mMed-800_mDark-20_rinv-0p3_alpha-peak_yukawa-1_13TeV-madgraphMLM-pythia8_n-1000'],
