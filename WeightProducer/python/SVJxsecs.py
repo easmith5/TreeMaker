@@ -172,53 +172,56 @@ SVJxsecs = {
     # Full t-channel cross section
     # currently commented out in favor of pair production cross sections (below)
     # todo for UL: improve naming scheme to disambiguate, recalculate cross sections w/ newer PDFs
-    "t-channel_mMed-200" : {
+    "t-channel_mMed-200_yukawa-1" : {
        "CrossSection" : XSValues(XS_13TeV=990.8), # uncertainty: 3.617
     },
-    "t-channel_mMed-400" : {
+    "t-channel_mMed-400_yukawa-1" : {
         "CrossSection" : XSValues(XS_13TeV=54.24), # uncertainty: 0.2163
     },
-    "t-channel_mMed-500" : {
+    "t-channel_mMed-500_yukawa-1" : {
        "CrossSection" : XSValues(XS_13TeV=21.7), # uncertainty: 0.08651
     },
-    "t-channel_mMed-600" : {
+    "t-channel_mMed-600_yukawa-1" : {
         "CrossSection" : XSValues(XS_13TeV=10.07), # uncertainty: 0.04063
     },
-    "t-channel_mMed-800" : {
+    "t-channel_mMed-800_yukawa-1" : {
         "CrossSection" : XSValues(XS_13TeV=3.096), # uncertainty: 0.0124
     },
-    "t-channel_mMed-1000" : {
+    "t-channel_mMed-1000_yukawa-1" : {
         "CrossSection" : XSValues(XS_13TeV=1.247), # uncertainty: 0.004968
     },
-    "t-channel_mMed-2000" : {
+    "t-channel_mMed-1500_yukawa-1" : {
+        "CrossSection" : XSValues(XS_13TeV=0.2505), # uncertainty: 0.0009788
+    },
+    "t-channel_mMed-2000_yukawa-1" : {
         "CrossSection" : XSValues(XS_13TeV=0.08492), # uncertainty: 3.290e-04
     },
-    "t-channel_mMed-3000" : {
+    "t-channel_mMed-3000_yukawa-1" : {
         "CrossSection" : XSValues(XS_13TeV=0.01891), # uncertainty: 7.277e-05
     },
-    "t-channel_mMed-4000" : {
+    "t-channel_mMed-4000_yukawa-1" : {
        "CrossSection" : XSValues(XS_13TeV=0.006132), # uncertainty: 2.361e-05
     },
-    "t-channel_mMed-6000" : {
+    "t-channel_mMed-6000_yukawa-1" : {
        "CrossSection" : XSValues(XS_13TeV=0.001269), # uncertainty: 4.938e-06
     },
     # t-channel pair production cross sections
-    # "t-channel_mMed-400" : {
+    # "t-channel_mMed-400_yukawa-1" : {
     #     "CrossSection" : XSValues(XS_13TeV=13.68), # uncertainty: 0.2579
     # },
-    # "t-channel_mMed-600" : {
+    # "t-channel_mMed-600_yukawa-1" : {
     #     "CrossSection" : XSValues(XS_13TeV=1.315), # uncertainty: 0.02370
     # },
-    # "t-channel_mMed-800" : {
+    # "t-channel_mMed-800_yukawa-1" : {
     #     "CrossSection" : XSValues(XS_13TeV=0.2092), # uncertainty: 0.003806
     # },
-    # "t-channel_mMed-1000" : {
+    # "t-channel_mMed-1000_yukawa-1" : {
     #     "CrossSection" : XSValues(XS_13TeV=0.04452), # uncertainty: 8.065e-04
     # },
-    # "t-channel_mMed-2000" : {
+    # "t-channel_mMed-2000_yukawa-1" : {
     #     "CrossSection" : XSValues(XS_13TeV=0.0001209), # uncertainty: 2.216e-06
     # },
-    # "t-channel_mMed-3000" : {
+    # "t-channel_mMed-3000_yukawa-1" : {
     #     "CrossSection" : XSValues(XS_13TeV=0.000001462), # uncertainty: 2.812e-08
     # },
 
