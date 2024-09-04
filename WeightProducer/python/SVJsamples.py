@@ -42,7 +42,7 @@ SVJsamples = [
     MCSample("step4_MINIAOD_mZprime-1900_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49220),
     MCSample("step4_MINIAOD_mZprime-2100_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 48873),
     MCSample("step4_MINIAOD_mZprime-2200_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49108),
-q    MCSample("step4_MINIAOD_mZprime-2300_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49272),
+    MCSample("step4_MINIAOD_mZprime-2300_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49272),
     MCSample("step4_MINIAOD_mZprime-2400_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49050),
     MCSample("step4_MINIAOD_mZprime-2600_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49273),
     MCSample("step4_MINIAOD_mZprime-2700_mDark-20_rinv-0.3_alpha-peak_n-2000", "ProductionV3", "", "Constant", 49296),
