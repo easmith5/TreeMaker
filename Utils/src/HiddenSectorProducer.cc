@@ -251,6 +251,7 @@ HiddenSectorProducer::HiddenSectorProducer(const edm::ParameterSet& iConfig) :
     produces<std::vector<int>>("MT2JetsID");
     produces<std::vector<std::vector<CLorentzVector>>>("GenJetsDarkHadrons");
     produces<std::vector<std::vector<CLorentzVector>>>("GenJetsDarkHadronJets");
+    produces<std::vector<std::vector<int>>>("GenJetsDarkHadronJetsConstituents");
     produces<std::vector<std::vector<int>>>("GenJetsDarkHadronJetsMultiplicity");
   }
 }
@@ -296,6 +297,7 @@ void HiddenSectorProducer::produce(edm::StreamID, edm::Event& iEvent, const edm:
 
   auto GenJets_darkHadrons = std::make_unique<std::vector<std::vector<CLorentzVector>>>();
   auto GenJets_darkHadronJets = std::make_unique<std::vector<std::vector<CLorentzVector>>>();
+  auto GenJets_darkHadronJets_constituents = std::make_unique<std::vector<std::vector<std::vector<CLorentzVector>>>>();
   auto GenJets_darkHadronJets_multiplicity = std::make_unique<std::vector<std::vector<int>>>();
 
   LorentzVector vpartsSum;
@@ -403,18 +405,23 @@ void HiddenSectorProducer::produce(edm::StreamID, edm::Event& iEvent, const edm:
       }
       std::vector<CLorentzVector> tmp_darkHadrons;
       std::vector<CLorentzVector> tmp_darkHadronJets;
+      std::vector<std::vector<CLorentzVector> > tmp_darkHadronJets_constituents;
       std::vector<int> tmp_darkHadronJets_multiplicity;
       for(const auto& entry : darkHadronMap){
         tmp_darkHadrons.emplace_back(entry.first->pt(),entry.first->eta(),entry.first->phi(),entry.first->energy());
         LorentzVector tmpjet;
+	std::vector<CLorentzVector> tmpjetconstituents;
         for(const auto& dau : entry.second){
-          tmpjet += dau->p4();
+           tmpjet += dau->p4();
+	   tmpjetconstituents.emplace_back(dau->pt(),dau->eta(),dau->phi(),dau->energy());
         }
         tmp_darkHadronJets.emplace_back(tmpjet.pt(),tmpjet.eta(),tmpjet.phi(),tmpjet.energy());
+	tmp_darkHadronJets_constituents.push_back(tmpjetconstituents);
         tmp_darkHadronJets_multiplicity.push_back(entry.second.size());
       }
       GenJets_darkHadrons->push_back(tmp_darkHadrons);
       GenJets_darkHadronJets->push_back(tmp_darkHadronJets);
+      GenJets_darkHadronJets_constituents->push_back(tmp_darkHadronJets_constituents);
       GenJets_darkHadronJets_multiplicity->push_back(tmp_darkHadronJets_multiplicity);
     }
   }
@@ -426,6 +433,7 @@ void HiddenSectorProducer::produce(edm::StreamID, edm::Event& iEvent, const edm:
     iEvent.put(std::move(MT2JetsID),"MT2JetsID");
     iEvent.put(std::move(GenJets_darkHadrons),"GenJetsDarkHadrons");
     iEvent.put(std::move(GenJets_darkHadronJets),"GenJetsDarkHadronJets");
+    iEvent.put(std::move(GenJets_darkHadronJets_constituents),"GenJetsDarkHadronJetsConstituents");
     iEvent.put(std::move(GenJets_darkHadronJets_multiplicity),"GenJetsDarkHadronJetsMultiplicity");
   }
   auto pMJJ = std::make_unique<double>(MJJ);

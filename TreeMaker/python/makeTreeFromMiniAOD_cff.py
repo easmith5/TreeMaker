@@ -91,6 +91,7 @@ def makeTreeFromMiniAOD(self,process):
         VectorVectorDouble             = self.VectorVectorDouble,
         VectorVectorString             = self.VectorVectorString,
         VectorVectorLorentzVector      = self.VectorVectorLorentzVector,
+        VectorVectorVectorLorentzVector= self.VectorVectorVectorLorentzVector,
         VectorVectorXYZVector          = self.VectorVectorXYZVector,
         VectorVectorXYZPoint           = self.VectorVectorXYZVector,
         AssocVectorVectorBool          = self.AssocVectorVectorBool,
@@ -1204,6 +1205,9 @@ def makeTreeFromMiniAOD(self,process):
             self.VectorVectorLorentzVector.extend([
                 'HiddenSector:GenJetsDarkHadrons(GenJetsAK8_darkHadrons)',
                 'HiddenSector:GenJetsDarkHadronJets(GenJetsAK8_darkHadronJets)',
+            ])
+            self.VectorVectorVectorLorentzVector.extend([
+                'HiddenSector:GenJetsDarkHadronJets(GenJetsAK8_darkHadronJetConstituents)',
             ])
             self.VectorVectorInt.extend([
                 'HiddenSector:GenJetsDarkHadronJetsMultiplicity(GenJetsAK8_darkHadronJetsMultiplicity)'
