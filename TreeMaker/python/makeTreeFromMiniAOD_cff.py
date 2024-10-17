@@ -1207,7 +1207,7 @@ def makeTreeFromMiniAOD(self,process):
                 'HiddenSector:GenJetsDarkHadronJets(GenJetsAK8_darkHadronJets)',
             ])
             self.VectorVectorVectorLorentzVector.extend([
-                'HiddenSector:GenJetsDarkHadronJets(GenJetsAK8_darkHadronJetConstituents)',
+                'HiddenSector:GenJetsDarkHadronJetsConstituents(GenJetsAK8_darkHadronJetsConstituents)',
             ])
             self.VectorVectorInt.extend([
                 'HiddenSector:GenJetsDarkHadronJetsMultiplicity(GenJetsAK8_darkHadronJetsMultiplicity)'

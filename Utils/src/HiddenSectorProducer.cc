@@ -251,7 +251,7 @@ HiddenSectorProducer::HiddenSectorProducer(const edm::ParameterSet& iConfig) :
     produces<std::vector<int>>("MT2JetsID");
     produces<std::vector<std::vector<CLorentzVector>>>("GenJetsDarkHadrons");
     produces<std::vector<std::vector<CLorentzVector>>>("GenJetsDarkHadronJets");
-    produces<std::vector<std::vector<int>>>("GenJetsDarkHadronJetsConstituents");
+    produces<std::vector<std::vector<std::vector<CLorentzVector>>>>("GenJetsDarkHadronJetsConstituents");
     produces<std::vector<std::vector<int>>>("GenJetsDarkHadronJetsMultiplicity");
   }
 }
