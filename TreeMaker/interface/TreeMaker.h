@@ -724,3 +724,7 @@ template <typename BaseIn = double, typename BaseOut = BaseIn>
 typedef TreeNNVector<math::PtEtaPhiELorentzVector,math::PtEtaPhiELorentzVectorF> TreeNNVLVToF;
 typedef TreeNNVector<math::PtEtaPhiELorentzVector> TreeNNVLV;
 
+template <>
+const string TreeNNVLVToF::GetBaseType() { return "math::PtEtaPhiELorentzVectorF"; }
+template <>
+const string TreeNNVLV::GetBaseType() { return "math::PtEtaPhiELorentzVector"; }
