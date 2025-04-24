@@ -1193,7 +1193,8 @@ def makeTreeFromMiniAOD(self,process):
             nPass = cms.int32(999),
             akAxesR0 = cms.double(999.0),
             jetCollInstanceName=cms.string("SubJets"),                     
-        )
+            )
+
         self.VarsDouble.extend([
             'HiddenSector:MJJ(MJJ_AK8)',
             'HiddenSector:Mmc(Mmc_AK8)',
@@ -1227,10 +1228,19 @@ def makeTreeFromMiniAOD(self,process):
             self.VectorVectorVectorLorentzVector.extend([
                 'HiddenSector:GenJetsDarkHadronJetsConstituents(GenJetsAK8_darkHadronJets_constituents)',
                 'HiddenSector:JetsDarkHadronJetsConstituents(JetsAK8_darkHadronJets_constituents)',
+                'HiddenSector:JetsDarkHadronJetsConstituentsGenMatchOnly(JetsAK8_darkHadronJets_constituentsGenMatchOnly)',
+                'HiddenSector:JetsDarkHadronJetsConstituentsNextDH(JetsAK8_darkHadronJets_constituentsNextDH)',
+
             ])
             self.VectorVectorInt.extend([
                 'HiddenSector:GenJetsDarkHadronJetsMultiplicity(GenJetsAK8_darkHadronJetsMultiplicity)',
                 'HiddenSector:JetsNConstituentsUnmatchedPdgid(JetsAK8_UnmatchedPdgid)',
+                'HiddenSector:JetsNConstituentsIsAssigned(JetsAK8_isAssigned)',
+                'HiddenSector:JetsConstituentPdgid(JetsAK8_ConstituentPdgid)',
+                'HiddenSector:GenJetsConstituentPdgid(GenJetsAK8_ConstituentPdgid)',
+                'HiddenSector:GenJetsConstituentMatchIndex(GenJetsAK8_ConstituentMatchIndex)',
+                'HiddenSector:JetsConstituentMatchStageReco(JetsAK8_ConstituentMatchStageReco)',
+
             ])
             self.VectorVectorDouble.extend([
                 'HiddenSector:GenJetsDarkHadronJetsTau1(GenJetsAK8_darkHadronJetsTau1)',
