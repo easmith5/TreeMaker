@@ -1184,16 +1184,18 @@ def makeTreeFromMiniAOD(self,process):
             DarkHadronIDs = cms.vuint32(4900111,4900113,4900211,4900213),
             DarkGluonIDs = cms.vuint32(4900021),
             SMQuarkIDs = cms.vuint32(1,2,3,4,5,6),
-            useSoftDrop = cms.bool(True),
-            Rcutoff = cms.double(999.0),
-            beta = cms.double(1.0),
-            R0   = cms.double(0.8),
-            measureDefinition = cms.uint32(0),
-            axesDefinition = cms.uint32(6),
-            nPass = cms.int32(999),
-            akAxesR0 = cms.double(999.0),
-            jetCollInstanceName=cms.string("SubJets"),                     
-            )
+            nsubjettiness = cms.PSet(
+                useSoftDrop = cms.bool(True),
+                Rcutoff = cms.double(999.0),
+                beta = cms.double(1.0),
+                R0   = cms.double(0.8),
+                measureDefinition = cms.uint32(0),
+                axesDefinition = cms.uint32(6),
+                nPass = cms.int32(999),
+                akAxesR0 = cms.double(999.0),
+            ),
+            #jetCollInstanceName=cms.string("SubJets"),                     
+        )
 
         self.VarsDouble.extend([
             'HiddenSector:MJJ(MJJ_AK8)',

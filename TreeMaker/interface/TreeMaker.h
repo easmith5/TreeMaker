@@ -685,7 +685,7 @@ template <typename BaseIn = double, typename BaseOut = BaseIn>
 		void AddBranch() override {
 			if(this->tree){
 				if(nestedVectors){
-					this->tree->Branch(this->nameInTree.c_str(),GetTopType().c_str(),&this->value,32000,this->splitLevel);
+					this->tree->Branch(this->nameInTree.c_str(),GetTripType().c_str(),&this->value,32000,this->splitLevel);
 				}
 				else {
 					this->tree->Branch((this->nameInTree).c_str(),GetSubType().c_str(),&values,32000,this->splitLevel);
@@ -702,13 +702,16 @@ template <typename BaseIn = double, typename BaseOut = BaseIn>
 				if (!associated) offsets.clear();
 			}
 		}
-		const string GetTopType() {
+		const string GetTripType() {
+			return "vector<" + GetTopType() + ">";
+		}
+                const string GetTopType() {
 			return "vector<" + GetSubType() + ">";
 		}
 		const string GetSubType() {
 			return "vector<" + GetBaseType() + ">";
 		}
-		// Default implementation
+                // Default implementation
 		const string GetBaseType() {
 			return typeid(BaseOut).name();
 		}
