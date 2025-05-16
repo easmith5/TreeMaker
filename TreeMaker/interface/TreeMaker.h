@@ -283,11 +283,11 @@ template<>
 void TreeObjectVVVLVToF::GetValue(const edm::Handle<vector<vector<vector<math::PtEtaPhiELorentzVector>>>>& var) {
 	value.reserve(var->size());
 	for(const auto& ivar : *var){
-	  value.emplace_back();
-	  value.back().reserve(ivar.size());
-	  for(const auto& jvar: ivar){
-	    value.back().emplace_back(jvar.begin(),jvar.end());
-	  }   
+		value.emplace_back();
+		value.back().reserve(ivar.size());
+		for(const auto& jvar: ivar){
+			value.back().emplace_back(jvar.begin(),jvar.end());
+		}
 	}
 }
 template<>
@@ -500,7 +500,7 @@ class TreeNestedVector : public TreeObject<std::vector<std::vector<BaseIn>>,std:
 		// From: https://stackoverflow.com/questions/17294629/merging-flattening-sub-vectors-into-a-single-vector-c-converting-2d-to-1d
 		void flatten(TopIn const& all, SubOut &accum, vector<int> &offsets) {
 			// Don't store any offsets if there are no sub-vectors
-			if (all.size() == 0) return;
+			if (all.empty()) return;
 			if (!associated && storeOffsets) { offsets.insert(std::end(offsets),0); }
 			for(auto& sub : all) {
 				accum.insert(std::end(accum), std::begin(sub), std::end(sub));
@@ -508,11 +508,11 @@ class TreeNestedVector : public TreeObject<std::vector<std::vector<BaseIn>>,std:
 			}
 			// This protects against the case where there were >=1 empty sub-vectors, and only empty vectors
 			// Thus, nothing will be in the output (accum) vector, but the offsets would be all '0'
-			if (storeOffsets && !associated && accum.size() == 0) offsets.clear();
+			if (storeOffsets && !associated && accum.empty()) offsets.clear();
 		}
 		void SetConsumes(edm::ConsumesCollector && iC) override{
 			tok = iC.consumes<TopIn>(this->tag);
- 		}
+        }
 		void FillTree(const edm::Event& iEvent) override{
 			SetDefault();
 			edm::Handle<TopIn> var;
@@ -614,10 +614,10 @@ const string TreeNVXYZP::GetBaseType() { return "math::XYZPoint"; }
 
 // Derived version of vector<vector<vector<T>>> with switch for vector<T> values and vector<int> offsets instead
 template <typename BaseIn = double, typename BaseOut = BaseIn> 
-  class TreeNNVector : public TreeObject<std::vector<std::vector<std::vector<BaseIn>>>,std::vector<std::vector<std::vector<BaseOut>>>> {
+class TreeNNVector : public TreeObject<std::vector<std::vector<std::vector<BaseIn>>>,std::vector<std::vector<std::vector<BaseOut>>>> {
 	public:
 		// Typedefs
-		typedef std::vector<BaseIn> SubIn;
+	    typedef std::vector<BaseIn> SubIn;
 		typedef std::vector<SubIn> TopIn;
 		typedef std::vector<TopIn> TripIn;
 		typedef std::vector<BaseOut> SubOut;
@@ -627,7 +627,8 @@ template <typename BaseIn = double, typename BaseOut = BaseIn>
 		// Constructor
 		TreeNNVector() : TreeObject<TripIn,TripOut>() {}
 		TreeNNVector(string tempFull_, string title_="", bool nestedVectors_=true, bool storeOffsets_=true, bool associated_=false, int splitLevel_=0) :
-			TreeObject<TripIn,TripOut>(tempFull_,title_,splitLevel_), nestedVectors(nestedVectors_), storeOffsets(storeOffsets_), associated(associated_) {}
+		TreeObject<TripIn,TripOut>(tempFull_,title_,splitLevel_), nestedVectors(nestedVectors_), storeOffsets(storeOffsets_), associated(associated_) {}
+
 		// Destructor
 		~TreeNNVector() override {}
 		
@@ -635,22 +636,22 @@ template <typename BaseIn = double, typename BaseOut = BaseIn>
 		// From: https://stackoverflow.com/questions/17294629/merging-flattening-sub-vectors-into-a-single-vector-c-converting-2d-to-1d
 		void flatten(TripIn const& all, SubOut &accum, vector<int> &offsets) {
 			// Don't store any offsets if there are no sub-vectors
-			if (all.size() == 0) return;
+			if (all.empty()) return;
 			if (!associated && storeOffsets) { offsets.insert(std::end(offsets),0); }
 			for(auto& sub : all) {
-			    int subLength = 0;
-			    for(auto& isub : sub) {
-			        subLength += isub.size();
-			    }
-			    if (!associated && storeOffsets) { offsets.insert(std::end(offsets),subLength); }
-			    for(auto& isub : sub) {
-			        accum.insert(std::end(accum), std::begin(isub), std::end(isub));
-				if (!associated) offsets.insert(std::end(offsets), storeOffsets ? accum.size() : isub.size());
-			    }
+				int subLength = 0;
+				for(auto& isub : sub) {
+					subLength += isub.size();
+				}
+				if (!associated && storeOffsets) { offsets.insert(std::end(offsets),subLength); }
+				for(auto& isub : sub) {
+					accum.insert(std::end(accum), std::begin(isub), std::end(isub));
+					if (!associated) offsets.insert(std::end(offsets), storeOffsets ? accum.size() : isub.size());
+				}
 			}
 			// This protects against the case where there were >=1 empty sub-vectors, and only empty vectors
 			// Thus, nothing will be in the output (accum) vector, but the offsets would be all '0'
-			if (storeOffsets && !associated && accum.size() == 0) offsets.clear();
+			if (storeOffsets && !associated && accum.empty()) offsets.clear();
 		}
 		void SetConsumes(edm::ConsumesCollector && iC) override{
 			tok = iC.consumes<TripIn>(this->tag);
@@ -667,10 +668,10 @@ template <typename BaseIn = double, typename BaseOut = BaseIn>
 					size_t totalLength = 0;
 					size_t subLength = 0;
 					for(auto iOuter = var->begin(); iOuter != var->end(); ++iOuter) {
-					  subLength += iOuter->size();
-					  for(auto iNext = iOuter->begin(); iNext != iOuter->end(); ++iNext) {
-						totalLength += iNext->size();
-					  }
+						subLength += iOuter->size();
+						for(auto iNext = iOuter->begin(); iNext != iOuter->end(); ++iNext) {
+							totalLength += iNext->size();
+						}
 					}
 					values.reserve(totalLength);
 					
@@ -705,13 +706,13 @@ template <typename BaseIn = double, typename BaseOut = BaseIn>
 		const string GetTripType() {
 			return "vector<" + GetTopType() + ">";
 		}
-                const string GetTopType() {
+		const string GetTopType() {
 			return "vector<" + GetSubType() + ">";
 		}
 		const string GetSubType() {
 			return "vector<" + GetBaseType() + ">";
 		}
-                // Default implementation
+        // Default implementation
 		const string GetBaseType() {
 			return typeid(BaseOut).name();
 		}
